@@ -1,0 +1,46 @@
+<form ng-submit="submitEmployee(employee)">
+    <div class="card top-space">
+        <div class="p+">
+            <h1>{{title}}</h1>
+            <div ng-if="employee.id != null" class="card__img card__img--left" style="height: 160px;">
+                    <img ng-src= "{{employee.profilePicture}}" ng-If ="employee.profilePicture">
+                    <img src="imgs/employee.jpg" ng-If = "employee.profilePicture == null">
+            </div>
+            <div flex-container="row">
+                <div flex-item>
+                    <lx-text-field label="Nombre">
+                        <input type="text" ng-model="employee.name">
+                    </lx-text-field>
+                </div>
+            </div>
+            <div flex-container="row">
+                <div flex-item>
+                    <lx-text-field label="Salario">
+                        <input type="text" ng-model="employee.salary">
+                    </lx-text-field>
+                </div>
+            </div>
+            <div flex-container="row">
+                <div flex-item>
+                    <lx-text-field label="Edad">
+                        <input type="text" ng-model="employee.age">
+                    </lx-text-field>
+                </div>
+            </div>
+            <div flex-container="row">
+                    <div flex-item>
+                        <lx-text-field label="Imagen de perfil">
+                            <input type="text" ng-model="employee.profilePicture">
+                        </lx-text-field>
+                    </div>
+            </div>
+        </div>
+        <div class="card__actions">
+            <button type="submit" class="btn btn--blue btn--l btn--raised">
+                Guardar
+            </button>
+
+        </div>
+    </div>
+
+</form>

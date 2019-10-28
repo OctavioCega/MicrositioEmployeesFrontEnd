@@ -1,0 +1,26 @@
+<div class="p+">
+    <div class="card top-space">
+        <div class="p+">
+            <div flex-container="row">
+                <div class="card__img card__img--left" style="height: 160px;">
+                        <img ng-src= "{{employee.profilePicture}}" ng-If ="employee.profilePicture">
+                        <img src="imgs/employee.jpg" ng-If = "employee.profilePicture == null">
+                </div>
+                <div flex-item>
+                    <strong class="fs-headline display-block">
+                        Id: {{employee.id}}
+                    </strong>
+                    <strong class="fs-headline display-block">
+                        Nombre: {{employee.name}}
+                    </strong>
+                    <strong class="fs-headline display-block">
+                        Edad: {{employee.age}}
+                    </strong>
+                    <strong class="fs-headline display-block">
+                        Salario: {{employee.salary}}
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<lx-tabs>
+    <lx-tab heading="Empleados">
+        <div class="p+">
+            <!-- para ordernar por Id de orden descendente ref https://stackoverflow.com/questions/16261348/descending-order-by-date-filter-in-angularjs-->
+            <div class="card top-space" ng-repeat="employee in employees | orderBy:'id':true"   ng-controller="EmployeeActionsController">
+                <!--llama al employees del controler ya que lo declare en el $scope(global)-->
+                <div class="p+">
+                    <div flex-container="row">
+                        <div class="card__img card__img--left" style="height: 160px;">
+                            <img ng-src= "{{employee.profilePicture}}" ng-If ="employee.profilePicture">
+                            <img src="imgs/employee.jpg" ng-If = "employee.profilePicture == null">
+                        </div>
+                        <div flex-item flex-container="column">
+                            <div flex-item>
+                                <strong class="fs-headline display-block">
+                                    Id: {{employee.id}}
+                                </strong>
+                                <strong class="fs-headline display-block">
+                                    Nombre: {{employee.name}}
+                                </strong>
+                                <strong class="fs-headline display-block">
+                                    Edad: {{employee.age}}
+                                </strong>
+                            </div>
+                            <div class="card__actions">
+                                <!--
+                                    Queria usar puros botones pero vi que en este caso si conviene usar solo
+                                    links, entonces vi que puedo estilizar <a> (links) como botones con bootstrap
+                                        ref https://es.stackoverflow.com/questions/48805/como-crear-un-bot%C3%B3n-html-que-funcione-como-un-link
+                                -->
+                                <a href="#/employees/{{employee.id}}" class="btn btn-primary">Ver</a>
+                                <a href="#/employees/submit/{{employee.id}}" class="btn btn-warning">Editar</a>
+                                <a ng-click="deleteEmployee(employee)" class="btn btn-danger">Eliminar {{employee.id}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lx-tab>
+</lx-tabs>
